@@ -1,0 +1,678 @@
+
+@font-face {
+    font-family: 'Royal King';
+    src: url(Royalty\ DEMO.ttf);
+}
+body{
+    background-image: url(sources/background.jpg);
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+.menu{
+    background-color: rgba(0,0,0,0.4);
+    margin-left: 30%;
+    width: 40%;
+    text-align: center;
+    border-radius: 3em;
+    height: 50em;
+}
+#menu_title{
+    font-size: 3em;
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#menu_title_bottomText{
+    font-family: Royal King;
+    display: inline;
+    font-size: 6em;
+}
+.menu_button{
+    margin-top: 0.5em;
+    color: white;
+    font-size: 3em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    border-radius: 0.5em;
+    width: 45%;
+    transition: all 0.3s;
+}
+.menu_button:hover{
+    background-color: rgba(0,0,0,0.4);
+    width: 55%;
+}
+#characterCreation{
+    display: none;
+    font-size: 3em;
+    background-color: rgba(0,0,0,0.4);
+    margin-left: 30%;
+    width: 40%;
+    text-align: center;
+    border-radius: 1em;
+    height: 16.666em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#characterMenu{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 0.5em;
+}
+#portraitContainer{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr 9em 1.5fr 3fr ;
+}
+#editorRulerPortrait{
+    width: 100%; 
+    height: 9em; 
+    border: 2px solid white
+}
+.portraitDirection{
+    font-size: 2em;
+    height: 4.59em;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    transition: all 0.3s;
+}
+.portraitDirection:hover{   
+    background-color: rgba(0,0,0,0.4);
+}
+#portraitLeft{
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    margin-left: 20%;
+}
+#portraitLeft:hover{
+    margin-left: 10%;
+}
+#portraitRight{
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    margin-right: 20%;
+}
+#portraitRight:hover{
+    margin-right: 10%;
+}
+#editorRulerName{
+    background-color: rgba(0,0,0,0);
+    width: 60%;
+    font-size: 1em;
+    border-radius: 0.5em;
+    border: 2px solid white;
+    transition: background-color 0.3s;
+    color:white;
+}
+#editorRulerName:focus{
+    background-color: rgba(0,0,0,0.4);
+}
+#attributeContainer{
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-column-gap: 5%;
+}
+.attributeDirection{
+    width:90%;
+    font-size: 1em;
+    border: 2px solid white;
+    color:white;
+    background-color: rgba(0,0,0,0);
+    transition: all 0.3s;
+}
+.attributeDirection:hover{
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+}
+.up{
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+.down{
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+}
+#game{
+    height: 16.666em;
+    display: none;
+    margin-left: 15%;
+    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    border-radius: 1em;
+    background-color: rgba(0,0,0,0.4);
+} 
+#statContainer{
+    width: 90%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    grid-column-gap: 2%;
+    font-size: 0.5em;
+}
+.stat{
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 1em;
+}
+#gameContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 4fr 3fr ;
+    grid-column-gap: 2%;
+    font-size: 0.5em;
+}
+.actionsOptions{
+    width: 35%;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    border-radius: 0.5em;
+    transition: all 0.3s;
+}
+.actionsOptions:hover{
+    background-color: rgba(0,0,0,0.4);
+    width: 40%;
+}
+#activateCountry{
+    border-bottom-right-radius: 0em;
+    border-top-right-radius: 0em;
+}
+#activateActions{
+    border-top-left-radius: 0em;
+    border-bottom-left-radius: 0em;
+}
+#activateBuilding{
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0em;
+}
+#activateResearch{
+    border-top-left-radius: 0em;
+    border-bottom-left-radius: 0em;
+}
+.tradeButton{
+    color: white;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid white;
+    transition: all 0.1s;
+}
+.disabledTradeButton{
+    color: gray;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid gray;
+}
+.tradeButton:hover{
+    background-color: rgba(0,0,0,0.4);
+}
+#tradeTopLeft{
+    border-top-left-radius: 0.5em;
+}#tradeTopRight{
+    border-top-right-radius: 0.5em;
+}#tradeBottomLeft{
+    border-bottom-left-radius: 0.5em;
+}#tradeBottomRight{
+    border-bottom-right-radius: 0.5em;
+}
+#warButton{
+    color: white;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid white;
+    transition: all 0.3s;
+    border-radius: 0.5em;
+    width: 60%;
+}
+#disabledWarButton{
+    color: gray;
+    background-color: rgba(0,0,0,0);
+    font-size: 1em;
+    border: 2px solid gray;
+    border-radius: 0.5em;
+    font-size: 0.7em;
+    width: 60%;
+}
+#warButton:hover{
+    background-color: rgba(0,0,0,0.4);
+    width: 70%;
+}
+.learnAttributeTrue{
+    width: 90%;
+    margin-left: 5%;
+    height: 2em;
+    color: white;
+    font-size: 0.7em;
+    transition: all 0.2s;
+    border-radius: 0.5em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+}.learnAttributeFalse{
+    width: 90%;
+    height: 2em;
+    color: gray;
+    font-size: 0.7em;
+    transition: all 0.3s;
+    border-radius: 0.5em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid gray;
+}
+.learnAttributeTrue:hover{
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    margin-left: 0%;
+}
+.buildingButton{
+    font-size: 0.8em;
+    width: 70%;
+    color: white;
+    transition: all 0.1s;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+}
+.buildingButtonLeft{
+    margin-left: 30%;
+}
+.buildingButtonRight{
+    margin-right: 30%;
+}
+.buildingButtonLeftDisabled{
+    margin-left: 30%;
+}
+.buildingButtonRightDisabled{
+    margin-right: 30%;
+}
+.buildingButton:hover{
+    background-color: rgba(0,0,0,0.6);
+}
+.buildingButtonCornerTopLeft{
+    border-top-left-radius: 0.5em;
+}.buildingButtonCornerTopRight{
+    border-top-right-radius: 0.5em;
+}.buildingButtonCornerBottomLeft{
+    border-bottom-left-radius: 0.5em;
+}.buildingButtonCornerBottomRight{
+    border-bottom-right-radius: 0.5em;
+}
+.disabledBuildingButton{
+    font-size: 0.8em;
+    width: 70%;
+    color: gray;
+    transition: all 0.3s;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid gray;
+}
+#buildingPlace{
+    height: 20em;
+    border: 2px solid white;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0);
+    border-left: 2px solid white
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(160,160,160,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(160,160,160,0.4);
+}
+.researchButton{
+    width: 60%;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid white;
+    transition: all 0.3s;
+    border-radius: 0.5em;
+    height: 3em;
+}
+.disabledResearchButton{
+    width: 60%;
+    color: gray;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid gray;
+    border-radius: 0.5em;
+    height: 3em;
+}
+.researchButton:hover{
+    width: 70%;
+    background-color: rgba(0,0,0,0.4);
+}
+.researchNext{
+    margin-top: 0.2em;
+    font-size: 0.7em;
+}
+.disabledResearchNext{
+    color: gray;
+    margin-top: 0.2em;
+    font-size: 0.7em;
+}
+#researchBarContainer{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    border-radius: 0.5em;
+    margin-top: -2.5em;
+    height: 1.5em;
+    width: 80%;
+    margin-left: 10%;
+}
+#researchBar{
+    content: '';
+    display: block;
+    background: rgba(160,160,160,0.2);
+    height: 100%;
+    border-radius: 0.5em;
+}
+#warfield{
+    width: 80%;
+    margin-left: 10%;
+    height: 16.5em;
+    display: none;
+    grid-template-columns: 33% 33% 33%;
+    grid-column-gap: 0%;
+    justify-items: center;
+    font-size: 1em;
+}
+.warfieldButton{
+    font-size: 1em;
+    width: 100%;
+    height: 5.5em;
+    border: 2px solid white;
+    background-color: rgba(0,0,0,0);
+    transition: all 0.3s;
+}
+.warfieldButton:hover{
+    background-color: rgba(0,0,0,0.4);
+}
+#eventfield{
+    width: 80%;
+    margin-left: 10%;
+    display: none;
+    font-size: 1em;
+}
+.eventText{
+    font-size: 0.8;
+    margin-bottom: 1em;
+}
+.randomEventButton{
+    margin-top: 0.2em;
+    width: 90%;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid white;
+    transition: all 0.3s;
+    border-radius: 1em;
+}
+.randomEventButton:hover{
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+}
+#optionsMenu{
+    display: none;
+}
+#sliderContainer{
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    margin-left: 20%;
+    display: grid;
+    grid-template-columns: 30% 50%;
+}
+.options_slider_name{
+    text-align: left;
+    font-size: 1em;
+}
+.menu_slider{
+    -webkit-appearance: none;
+    height: 3em;
+    margin-top: 2em;
+    background: rgba(160,160,160,0.2);
+    outline: none;
+    border: 2px solid white;
+    border-radius: 1em;
+}
+.menu_slider:hover{
+    background: rgba(160,160,160,0.3);
+}
+.menu_slider::-webkit-slider-thumb{
+    border-radius: 1em;
+    -webkit-appearance: none;
+    width: 3em;
+    height:3em;
+    background: rgba(160,160,160,0.4);
+}
+#inGame_button_backToMenu{
+    width: 90%;
+    margin-left: 5%;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    font-size: 1.2em;
+    border: 2px solid white;
+    transition: all 0.3s;
+    border-radius: 1em;
+}
+#inGame_button_backToMenu:hover{
+    margin-left: 0%;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+}
+.field{
+    width: 100%;
+    border: 0.5px solid white;
+    height: width;
+    transition: all 0.1s;
+}
+.field:hover{
+    background-color: rgba(0,0,0,0.4);
+}
+#loadList{
+    border: 2px solid white;
+    overflow-y: scroll;
+    width: 70%;
+    margin-left: 15%;
+    height: 20em;
+    border-radius: 1em;
+}
+.savegame{
+    height: 3em;
+    background-color:rgba(0,0,0,0);
+    border-bottom: 2px solid white;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+.loadButton{
+    height: 3em;
+    font-size: 1em;
+    background-color:rgba(0,0,0,0);
+    color: white;
+    border: 2px solid rgba(0,0,0,0);
+    border-left: 2px solid white;
+    transition: all 0.1s;
+}
+.loadButton:hover{
+    background-color:rgba(0,0,0,0.4);
+}
+#menu_button_delete{
+    width: 45%;
+    background-color: rgba(0,0,0,0);
+    border-radius: 0.5em;
+    font-size: 3em;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s;
+}
+#menu_button_delete:hover{
+    width: 55%;
+    background-color:rgba(0,0,0,0.4);
+}
+.inGame_button_backToMenu_disabled{
+    color: grey;
+    border: 2px solid grey;
+}
+.monumentButton{
+    margin-bottom: -2px;
+    margin-top: -2px;
+    width: 60%;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8em;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.1s;
+}
+.monumentButton:hover{
+    background-color:rgba(0,0,0,0.4);
+}
+.disabledMonumentButton{
+    margin-bottom: -2px;
+    margin-top: -2px;
+    width: 60%;
+    font-size: 0.8em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid grey;
+    color: grey;
+}
+.monumentButtonTop{
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+}
+.monumentButtonBottom{
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+#extrasMenu{
+    display:none
+}
+.extraInput{
+    font-size: 2em; 
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin-top: 0.1em;
+}
+.extra_checkbox{
+    margin-left:70%;
+	-webkit-appearance: none;
+    vertical-align:bottom;
+    height: 3em;
+    width: 3em;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    border-radius: 1em;
+}.extra_checkbox:hover{
+    background-color: rgba(0,0,0,0.4);
+}.extra_checkbox:checked:after{
+    content: '\2714';
+	font-size: 2em;
+	color: white;
+    margin-left: 0.3em;
+    vertical-align: text-top;
+}
+
+
+.tooltip {
+    position: relative;
+}
+.tooltip:before,
+.tooltip:after {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+.tooltip:after {
+	border-right: 10px solid transparent;
+	border-top: 10px solid white; 
+    border-left: 10px solid transparent;
+    content: '';
+    height: 0;
+    top: -12px;
+    left: 10px;
+    width: 0;
+}
+.tooltip:before {
+    background: rgba(0,0,0,0.8);
+    border-radius: 0.5em;
+    border: 2px solid white;
+    color: #fff;
+    content: attr(data-title);
+    font-size: 18px;
+    padding: 5px;
+    top: -42px;
+    line-height: 1em;;
+    white-space: nowrap;
+}
+.tooltip:hover:after,
+.tooltip:hover:before {
+    opacity: 1;
+}
+
+.statTooltip:before{
+    left: 50px;
+}
+.statTooltip:after{
+    left: 60px
+}
+
+.ressourceTooltip:before{
+    top: -25px;
+    left: 10px;
+}.ressourceTooltip:after{
+    top: 6px;
+    left: 20px;
+}
+
+.bonusButton{
+    width: 60%;
+    background-color: rgba(0,0,0,0);
+    font-size: 1em;
+    margin-top: 1em;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.2s;
+    border-radius: 0.5em;
+}
+.bonusButton:hover{
+    width: 70%;
+    background-color: rgba(0,0,0,0.4);
+}
+#bonusList{
+    font-size: 0.8em;
+    margin-left: 20%;
+    margin-top: 1em;
+    width: 70%;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 65% 5%;
+    grid-row-gap: 1em;
+}
+
+#confirmBuildingGrid{
+    display: grid;
+    text-align: left;
+    margin-left:-10%;
+    width: 120%;
+    font-size: 0.8em;
+    grid-template-columns: 50% 50%;
+}
+.confirmBuildingButton{
+    width: 50%;
+    background-color: rgba(0,0,0,0);
+    font-size: 1em;
+    margin-top: 0.5em;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.2s;
+    border-radius: 0.5em;
+}.confirmBuildingButton:hover{
+    width: 60%;
+    background-color: rgba(0,0,0,0.4);
+}

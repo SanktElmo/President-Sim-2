@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+    
+        <title id="title"> President Simulator</title>
+
+        <link rel = "icon" href = "" type = "image/x-icon">
+
+        <link rel="stylesheet" href="style.css">
+        
+        <script type="text/javascript" src="main.js">
+            //Script der für alles zuständig ist (1267 Zeilen)
+        </script>
+        <script type="text/javascript" src="variables.js">
+            //Script der für alles mit globalen Variablen zuständig ist (189 Zeilen)
+        </script>
+        <script type="text/javascript" src="Savegames.js">
+            //Script der für alles mit Speichern zuständig ist (189 Zeilen)
+        </script>
+        <script type="text/javascript" src="TicTacToe.js">
+            //Script der für Rebellionen (TicTactoe) zuständig ist (131 Zeilen)
+        </script>
+    </head>
+    <body id="body">
+        <br><br>
+        <div id="nothing" style="display:none; width: 50%; margin-left: 25%; background-color: rgba(0,0,0,0.4); border-radius: 1em;height:50em">
+            <video id="nothingsVideo" style="width: 90%; margin-left:5%; margin-top:5%;" preload="auto" controls>
+                <source src="sources/nothing.mp4" type="video/mp4" />
+            </video>
+            <button id="menu_button_restart" class="menu_button" onclick="backToMenu(); sounds(1)">Back</button>
+        </div>
+        <!--Quelle: https://www.youtube.com/watch?v=T59N3DPrvac -->
+        <audio id="sus" preload="auto">
+            <source src="sources/sus.mp3" />
+        </audio>
+
+        <!--Quelle: https://www.youtube.com/watch?v=dywM446-vcE -->
+        <audio id="audiofile" preload="auto">
+            <source src="sources/Gangster.mp3" />
+        </audio>
+        <!--Quelle: https://www.youtube.com/watch?v=m8vBn3HPnNo -->
+        <audio id="audiofile2" preload="auto">
+            <source src="sources/SovietAnthem.mp3" />
+        </audio>
+        <!--Quelle: https://www.youtube.com/watch?v=mP1QJguEJJc -->
+        <audio id="audiofile3" preload="auto">
+            <source src="sources/Rickroll.mp3" />
+        </audio>
+        <!--Quelle: https://www.youtube.com/watch?v=FnOEGvEKFSQ -->
+        <audio id="audiofile4" preload="auto">
+            <source src="sources/DuelOfTheFates.mp3" />
+        </audio>
+        <!--Quelle: https://www.youtube.com/watch?v=mBp4QalZt4c -->
+        <audio id="audiofile5" preload="auto">
+            <source src="sources/CoconutMall.mp3" />
+        </audio>
+        
+        <!--Quelle: https://www.zapsplat.com/music/multimedia-click-1/ -->
+        <audio id="buttonSound" preload="auto">
+            <source src="sources/button.mp3" />
+        </audio>
+        <!--Quelle: David -->
+        <audio id="alternativeButtonSound" preload="auto">
+            <source src="sources/essen.mp3" />
+        </audio>
+        <!--Quelle:  -->
+        <audio id="warSound" preload="auto">
+            <source src="sources/war.mp3" />
+        </audio>
+        <!--Quelle: https://www.youtube.com/watch?v=8Uccpxzi880 -->
+        <audio id="moneySound" preload="auto">
+            <source src="sources/money.mp3" />
+        </audio>
+
+        <div id="mainmenu" class="menu">
+            <br><br><br>
+            <p id="menu_title">
+                President Simulator 2:<br>
+                <p id="menu_title_bottomText">
+                    Royale
+                </p>
+            </p>
+            <button id="menu_button_start" class="menu_button tooltipEditor" onclick="start(0); sounds(1)">Start</button><br>
+            <button id="menu_button_options" class="menu_button" onclick="options(); sounds(1)">Options</button><br>
+            
+            <button id="menu_button_save" class="menu_button" onclick="loadsave(); sounds(1)">Load</button><br>
+            <button id="menu_button_restart" class="menu_button" onclick="restart(); sounds(1)">Restart</button><br>
+        </div>
+
+        <div id="optionsMenu" class="menu">
+            <br><br><br>
+            <p id="menu_title">
+                President Simulator 2:<br>
+                <p onclick="nothing()" id="menu_title_bottomText">
+                    Royale
+                </p>
+            </p>
+            <div id="sliderContainer">
+                <p class="options_slider_name">Music:</p><input type="range" id="options_slider_music" class="menu_slider" min=0 max=100 value=0 oninput="musicVolume()">
+                <p class="options_slider_name">Sounds:</p><input type="range" id="options_slider_sounds" class="menu_slider" min=0 max=100 value=50 oninput="soundsVolume()">
+            </div>
+            <button id="menu_button_difficulty" class="menu_button" onclick="activateExtras(); sounds(1)">Extras</button><br>
+            <button id="menu_button_restart" class="menu_button" onclick="backToMenu(); sounds(1)">Back</button><br>
+        </div>
+
+        <div id="extrasMenu" class="menu">
+            <br><br><br>
+            <p id="menu_title">
+                President Simulator 2:<br>
+                <p id="menu_title_bottomText">
+                    Royale
+                </p>
+            </p><br>
+            <div style="display:grid; grid-template-columns: 2fr 1fr;margin-left: 20%;width: 60%;">
+                <p class="extraInput">Tasty Buttons: </p><input type="checkbox" id="menu_button_buttonSound" class="extra_checkbox" onclick="extra(1); sounds(1)">
+                <p class="extraInput">Gaymode: </p><input type="checkbox" id="menu_button_gaymode" class="extra_checkbox" onclick="extra(2); sounds(1)">
+                <p class="extraInput">Drip: </p><input type="checkbox" id="menu_button_betterMusic" class="extra_checkbox" onclick="extra(3); sounds(1)">
+            </div>
+            <button id="menu_button_restart" class="menu_button" onclick="backToOptions(); sounds(1)">Back</button><br>
+        </div>
+
+        <div id="characterCreation"><br>
+            Character Creation<br>
+            <div id="characterMenu">
+                <div id="portraitContainer"><br>
+                    <button id="portraitLeft" class="portraitDirection" onclick="portraitLeft(); sounds(1)"> ᐊ </button>
+                    <img id="editorRulerPortrait" src="sources/1.png">
+                    <button id="portraitRight" class="portraitDirection" onclick="portraitRight(); sounds(1)"> ᐅ </button><br>
+                </div>
+                <br>Name: <input id="editorRulerName" placeholder="John Doe" maxlength="30" onchange="changeName(); sounds(1)"><br>
+                <p id="attributesLeft">Attributes (16 left)</p>
+                <div id="attributeContainer">
+                    <button class="up attributeDirection" onclick="attributeUp(1); sounds(1)"> ᐃ </button>
+                    <button class="up attributeDirection" onclick="attributeUp(2); sounds(1)"> ᐃ </button>
+                    <button class="up attributeDirection" onclick="attributeUp(3); sounds(1)"> ᐃ </button>
+                    <p id="editorFinance" class="tooltip" data-title="Unlocks Trading"> Finance: 0 </p>
+                    <p id="editorWarfare" class="tooltip" data-title="Unlocks War"> Warfare: 0 </p>
+                    <p id="editorDiplomacy" class="tooltip" data-title="Unlocks Monuments"> Diplomacy: 0 </p>
+                    <button class="down attributeDirection" onclick="attributeDown(1); sounds(1)"> ᐁ </button>
+                    <button class="down attributeDirection" onclick="attributeDown(2); sounds(1)"> ᐁ </button>
+                    <button class="down attributeDirection" onclick="attributeDown(3); sounds(1)"> ᐁ </button>
+                </div>
+                
+            <button style="font-size: 2em;" class="menu_button" onclick="start(1); sounds(1)">Start</button><br>
+
+            </div>
+        </div>
+
+        <div id="game"><br>
+            <div id="statContainer">
+                <div class="stat tooltip statTooltip" data-title='Used to buy things' id="money">Money: <br> 0 </span></div>
+                <div class="stat tooltip statTooltip" data-title='Can give bonuses or cause a rebellion' id="stability">Stability: <br> 0 </span></div>
+                <div class="stat tooltip statTooltip" data-title='Used to build monuments' id="politicalPower">Authority: <br> 0 </div>
+                <div class="stat tooltip statTooltip" data-title='Used to learn skills' id="prestige">Prestige: <br> 0 </div>
+                <div class="stat" id="time">Time: <br> 1.1.2022 </div>
+                <button id="inGame_button_backToMenu" style="font-size: 1em;" onclick="backToMenu(); sounds(1)">Menu</button>
+            </div>
+            <br>
+
+            <div id="gameContainer">
+                <div id="actionsContainer">
+                    <button id="activateCountry" class="actionsOptions" onclick="activateCountry(); sounds(1)">Country</button>
+                    <button id="activateActions" class="actionsOptions" onclick="activateActions(); sounds(1)">Actions</button>
+                    <div id="actions"> </div>
+                </div>
+                <div id="gamefield" style="text-align: center">
+                    <p id="buildingCount">Buildings: 3/20</p>
+                    <div id="buildingPlace">
+                    </div>
+                </div>
+                <div id="warfield" style="text-align: center">
+                    War
+                </div>
+                <div id="eventfield" style="text-align: center">
+                    Events
+                </div>
+                <div id="actions2Container">    
+                    <button id="activateBuilding" class="actionsOptions" onclick="activateBuilding(); sounds(1)">Building</button>
+                    <button id="activateResearch" class="actionsOptions" onclick="activateResearch(); sounds(1)">Research</button>
+                    <div id="actions2"> </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadMenu" style="display: none" class="menu">
+            <br><br><br>
+            <p id="menu_title">
+                President Simulator 2:<br>
+                <p id="menu_title_bottomText">
+                    Royale
+                </p>
+            </p>
+            <div id="loadList">
+            </div>
+            <br>
+            <button id="menu_button_delete" onclick="resetSaves(); sounds(1)">Delete All</button><br>
+            <button id="menu_button_restart" class="menu_button" onclick="backToMenu(); sounds(1)">Back</button>
+        </div>
+    </body>
+</html>
